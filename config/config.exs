@@ -21,7 +21,17 @@ use Mix.Config
 #     config :logger, level: :info
 #
  config :trot, :port, 8080
- config :trot, :router, Twilio.Router
+ config :trot, :router, Hotdish.Router
+
+# Setting up database parameters
+config :hotdish, ecto_repos: [Hotdish.Repo]
+
+config :hotdish, Hotdish.Repo,
+ adapter: Ecto.Adapters.Postgres,
+ database: "hotdish",
+ username: "postgres",
+ password: "sugarman" 
+
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
 # by uncommenting the line below and defining dev.exs, test.exs and such.

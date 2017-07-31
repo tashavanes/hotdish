@@ -1,8 +1,8 @@
-defmodule Twilio.Mixfile do
+defmodule Hotdish.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :twilio,
+    [app: :hotdish,
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -15,7 +15,7 @@ defmodule Twilio.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger, :plug, :trot, :cowboy, :hackney, :httpoison, :timber] ]
+    [extra_applications: [:logger, :plug, :cowboy] ]
   end
 
   # Dependencies can be Hex packages:
@@ -28,12 +28,15 @@ defmodule Twilio.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:trot, "~> 0.5.3"},
+    [{:trot, "~> 0.6.0"},
      {:cowboy, "~> 1.1"},
      {:hackney, "~> 1.8"},
      {:httpoison, "~> 0.12.0"},
      {:timber, "~> 2.3"},
-     {:plug, "~> 1.3", override: true}
+     {:plug, "~> 1.3", override: true},
+     {:ecto, "~> 2.1"},
+     {:postgrex, "~> 0.13.3"},
+     {:mapail, "~> 1.0"}
  ]
   end
 end

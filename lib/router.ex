@@ -1,10 +1,16 @@
-defmodule Twilio.Router do
+defmodule Hotdish.Router do
   use Trot.Router
   import Plug.Conn
 
+#test if service is up
   get "/" do 
-     {200, %{"status" => "Service is running"}}
+     {200, %{status: "Service is running", id: "11345", cat: "Leo"}}
   end
+
+#retrieve a cat
+ get "/cat" do
+  {200, %{"cat" => "Leo", "home" => "barn", "story" =>  "feral"}}
+end
 
 # Sets the status code to 201 with a text body
 get "/text/body" do
